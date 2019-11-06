@@ -1,0 +1,13 @@
+<!-- carmod/templates/carmod/decade_list.html -->
+{% extends "carmod/base.html" %}
+
+{% block content %}
+<h2>Cars <a href="">(+)</a></h2>
+<ul>
+  {% for car in cars %}
+  <li>
+    <a href="">{{ car.year }} - {{ car.make }} - {{ car.car_model }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!-- carmod/templates/carmod/fad_list.html -->
+{% extends "carmod/base.html" %}
+
+{% block content %}
+<h2>Categories <a href="">(+)</a></h2>
+<ul>
+  {% for category in categorys %}
+  <li>
+    <a href="">{{ category.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
