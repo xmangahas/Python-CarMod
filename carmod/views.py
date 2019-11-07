@@ -62,7 +62,7 @@ def category_create(request):
         form = CategoryForm(request.POST)
         if form.is_valid():
             category = form.save()
-            return redirect('category_detail', pk=category.pk)
+            return redirect('car_detail', pk=category.car.pk)
     else:
         form = CategoryForm()
     return render(request, 'carmod/category_form.html', {'form': form})
@@ -73,7 +73,7 @@ def category_edit(request, pk):
         form = CategoryForm(request.POST, instance=category)
         if form.is_valid():
             category = form.save()
-            return redirect('category_detail', pk=category.pk)
+            return redirect('car_detail', pk=category.car.pk)
     else:
         form = CategoryForm(instance=category)
     return render(request, 'carmod/category_form.html', {'form': form})
@@ -107,4 +107,4 @@ def part_edit(request, pk):
 def part_delete(request, pk):
     part = Part.objects.get(pk=pk)
     Part.objects.get(id=pk).delete()
-    return redirect('car_detail', pk=part.car.pk)
+    return redirect('car_detail', pk=part.category.car.pk)

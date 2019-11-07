@@ -4,7 +4,7 @@ from .models import Car, Category, Part
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ('make', 'car_model', 'trim', 'year')
+        fields = ('make', 'car_model', 'trim', 'year', 'image_url')
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -14,4 +14,4 @@ class CategoryForm(forms.ModelForm):
 class PartForm(forms.ModelForm):
     class Meta:
         model = Part
-        fields = ('part_name', 'part_num', 'quantity', 'price_each', 'price_total', 'link_part', 'notes', 'image_url', 'installed', 'category', 'car')
+        fields = ('part_name', 'part_num', 'quantity', 'price_each', 'price_total', 'link_part', 'notes', 'image_url', 'installed', 'category')

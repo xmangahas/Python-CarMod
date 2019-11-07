@@ -2,13 +2,13 @@
 
 {% block content %}
 <h2>{{ part.part_name }}<a href="{% url 'part_edit' pk=part.pk %}">(edit)</a><a href="{% url 'part_delete' pk=part.pk %}"> (delete)</a></h2>
-<h3>Category:  <a a href="{% url 'category_detail' pk=part.category.pk %}">{{ part.category.name }}</a> For <a href="{% url 'car_detail' pk=part.car.pk %}">{{ part.car.make }} {{ part.car.car_model }}</a></h3>
+<h3>Category:  <a href="{% url 'category_detail' pk=part.category.pk %}">{{ part.category.name }}</a> For <a a href="{% url 'car_detail' pk=part.category.car.pk %}">{{ part.category.car.car_model }}</a></h3>
 <h4>Installed?:  {{ part.installed }}</h4>
 <h4>Part Number:  {{ part.part_num }}</h4>
 <h4>Quantity:  {{ part.quantity }}</h4>
 <h4>Price of Each:  {{ part.price_each }}</h4>
 <h4>Total Price:  {{ part.price_total }}</h4>
-<h4>Link to Part:  {{ part.link_part }}</h4>
+<h4>Link to Part:  {{ part.link_part|urlize }}>
 <p>Notes: {{ part.notes }}</p>
 <img src="{{ part.image_url }}" alt="part image">
 

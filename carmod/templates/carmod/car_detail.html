@@ -4,7 +4,7 @@
 <h2>{{ car.make }} - {{ car.car_model }} <a href="{% url 'car_edit' pk=car.pk %}">(edit)</a><a href="{% url 'car_delete' pk=car.pk %}"> (delete)</a></h2>
 <h3>Year:  {{ car.year }}</h3>
 <h3>Trim:  {{ car.trim }}</h3>
-<br>
+<img src="{{ car.image_url }}" alt="car image">
 <h2>Categories: <a href="{% url 'category_create' %}">(+)</a></h2>
 <ul>
   {% for category in car.categorys.all %}
