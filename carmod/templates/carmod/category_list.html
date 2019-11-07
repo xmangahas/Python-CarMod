@@ -2,11 +2,11 @@
 {% extends "carmod/base.html" %}
 
 {% block content %}
-<h2>Categories <a href="">(+)</a></h2>
+<h2>Categories <a href="{% url 'category_create' %}">(+)</a></h2>
 <ul>
   {% for category in categorys %}
   <li>
-    <a href="">{{ category.name }}</a>
+    <a href="{% url 'category_detail' pk=category.pk %}">{{ category.name }} -- For {{ category.car.make }} {{ category.car.car_model }}</a>
   </li>
   {% endfor %}
 </ul>

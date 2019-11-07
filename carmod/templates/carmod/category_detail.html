@@ -1,0 +1,17 @@
+{% extends "carmod/base.html" %}
+
+{% block content %}
+<h2>{{ category.name }}<a href="{% url 'category_edit' pk=category.pk %}">(edit)</a><a href="{% url 'category_delete' pk=category.pk %}"> (delete)</a></h2>
+<h3>For <a href="{% url 'car_detail' pk=category.car.pk %}">{{ category.car.make }} {{ category.car.car_model }}</a></h3>
+<br>
+<h3>Parts: <a href="{% url 'part_create' %}">(+)</a></h4>
+<ul>
+  {% for part in category.parts.all %}
+  <li>
+    <a href="{% url 'part_detail' pk=part.pk %}">{{ part.part_name }} </a><a href="{% url 'part_edit' pk=part.pk %}"> (edit)</a><a href="{% url 'part_delete' pk=part.pk %}"> (delete)</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

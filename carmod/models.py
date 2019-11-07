@@ -6,7 +6,7 @@ class Car(models.Model):
     car_model = models.CharField(default = '', max_length = 100)
     trim = models.CharField(default = '', max_length = 100)
     year = models.CharField(default = '', max_length=4)
-
+    
     def __str__(self):
         return f"{self.year} - {self.make} - {self.car_model}"
 
@@ -15,7 +15,7 @@ class Category(models.Model):
     car = models.ForeignKey(Car, default = '', on_delete = 'CASCADE', related_name = 'categorys')
 
     def __str__(self):
-        return self.name
+        return f"{self.name} for {self.car.car_model}"
 
 class Part(models.Model):
     part_name = models.CharField(default = '', max_length = 100)

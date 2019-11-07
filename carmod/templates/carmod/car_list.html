@@ -2,11 +2,11 @@
 {% extends "carmod/base.html" %}
 
 {% block content %}
-<h2>Cars <a href="">(+)</a></h2>
+<h2>Cars <a href="{% url 'car_create' %}">(+)</a></h2>
 <ul>
   {% for car in cars %}
   <li>
-    <a href="">{{ car.year }} - {{ car.make }} - {{ car.car_model }}</a>
+    <a href="{% url 'car_detail' pk=car.pk %}">{{ car.year }} - {{ car.make }} - {{ car.car_model }}</a>
   </li>
   {% endfor %}
 </ul>
