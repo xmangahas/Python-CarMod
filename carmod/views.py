@@ -54,6 +54,7 @@ def car_edit(request, pk):
     return render(request, 'carmod/car_form.html', {'form': form})
 
 def car_delete(request, pk):
+    #car = Car.objects.get(pk=pk)
     Car.objects.get(id=pk).delete()
     return redirect('car_list')
 

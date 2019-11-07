@@ -23,7 +23,7 @@ class Part(models.Model):
     part_num = models.CharField(default = '', max_length = 100)
     quantity = models.PositiveIntegerField(default='0')
     price_each = models.DecimalField(default='0.00', max_digits=8, decimal_places=2)
-    price_total = models.DecimalField(default='0.00', max_digits=8, decimal_places=2)
+    price_total = models.DecimalField(default='0.00', blank=True, max_digits=8, decimal_places=2)
     link_part = models.CharField(default = '', max_length = 512)
     notes = models.TextField(default="", blank=True)
     image_url = models.CharField(default = '', blank=True, max_length = 512)
@@ -32,3 +32,7 @@ class Part(models.Model):
 
     def __str__(self):
         return self.part_name
+
+    @property
+    def get_total_price(self):
+        return self.quantity*self.price_each
