@@ -1,7 +1,7 @@
 {% extends "carmod/base.html" %}
 
 {% block content %}
-<h2>{{ car.make }} - {{ car.car_model }} <a href="{% url 'car_edit' pk=car.pk %}">(edit)</a><a href="{% url 'car_delete' pk=car.pk %}" onclick="return confirm('Are you sure you want to delete this?')"> (delete)</a></h2>
+<h2>{{ car.make }} - {{ car.car_model }} <a class="edit" href="{% url 'car_edit' pk=car.pk %}">(edit)</a><a class="delete" href="{% url 'car_delete' pk=car.pk %}" onclick="return confirm('Are you sure you want to delete this?')"> (delete)</a></h2>
 <h3>Year:  {{ car.year }}</h3>
 <h3>Trim:  {{ car.trim }}</h3>
 <img src="{{ car.image_url }}" class = "car-image" alt="car image">
@@ -9,12 +9,12 @@
 <ul>
   {% for category in car.categorys.all %}
   <li>
-    <h3><a href="{% url 'category_detail' pk=category.pk %}">{{ category.name }}</a><a href="{% url 'category_edit' pk=category.pk %}">(edit)</a><a href="{% url 'category_delete' pk=category.pk %}" onclick="return confirm('Are you sure you want to delete this?')"> (delete)</a></h3>
+    <h3><a href="{% url 'category_detail' pk=category.pk %}">{{ category.name }}</a><a class="edit" href="{% url 'category_edit' pk=category.pk %}">(edit)</a><a class="delete" href="{% url 'category_delete' pk=category.pk %}" onclick="return confirm('Are you sure you want to delete this?')"> (delete)</a></h3>
     <h4>Parts: <a href="{% url 'part_create' %}">(+)</a></h4>
     <ul>
         {% for part in category.parts.all %}
         <li>
-            <a href="{% url 'part_detail' pk=part.pk %}">{{ part.part_name }} </a> <a href="{% url 'part_edit' pk=part.pk %}"> (edit)</a><a href="{% url 'part_delete' pk=part.pk %}" onclick="return confirm('Are you sure you want to delete this?')"> (delete)</a>
+            <a href="{% url 'part_detail' pk=part.pk %}">{{ part.part_name }} </a> <a class="edit" href="{% url 'part_edit' pk=part.pk %}"> (edit)</a><a class="delete" href="{% url 'part_delete' pk=part.pk %}" onclick="return confirm('Are you sure you want to delete this?')"> (delete)</a>
         </li>
         {% endfor %}
     </ul>

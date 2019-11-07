@@ -57,6 +57,7 @@ input {
 }
   
 input[type="submit"],
+a.edit,
 a.delete {
     width: auto;
     padding: 9px 15px;
@@ -68,6 +69,10 @@ a.delete {
   
 a.delete {
     background-color: red;
+}
+
+a.edit {
+    background-color: orange;
 }
   
 .car-image {
